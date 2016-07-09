@@ -42,6 +42,6 @@ public class TaxiTest {
     @Test
     public void test_getPrice(){
     //   long price = getPrice(1);
-        assertEquals(taxi.getPrice(9,0),1200);
+        assertEquals(taxi.getPrice(9,0),12);
     }
 }

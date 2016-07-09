@@ -49,6 +49,13 @@ public class Taxi {
         }else return 0;
     }
 
+    public long priceFormat(long price){
+        long formatPrice=0;
+        if (price>0)
+        formatPrice = price/100;
+        return formatPrice;
+    }
+
 
     public long getPrice(int km,int mins){
         long price=0;
@@ -61,7 +68,7 @@ public class Taxi {
             price+=normalPrice(km);
         }
         price+=timePrice(mins);
-        return price;
+        return priceFormat(price);
     }
 
 }
