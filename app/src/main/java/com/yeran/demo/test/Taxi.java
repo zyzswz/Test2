@@ -43,7 +43,14 @@ public class Taxi {
         return 0;
     }
 
-    public long getPrice(int km){
+    public long timePrice(int mins){
+        if(mins>0){
+            return 25*mins;
+        }else return 0;
+    }
+
+
+    public long getPrice(int km,int mins){
         long price=0;
         if(km>8){
             long normalPrice=normalPrice(8);
@@ -53,6 +60,7 @@ public class Taxi {
         }else {
             price+=normalPrice(km);
         }
+        price+=timePrice(mins);
         return price;
     }
 
