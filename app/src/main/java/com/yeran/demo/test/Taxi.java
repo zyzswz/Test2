@@ -25,9 +25,9 @@ public class Taxi {
     public long normalPrice(int km){
         long price=0;
         if(km>2) {
-            price  = 80*(km-2)+600;
+            price  = priceOnKm*(km-2)+firstPrice;
         }else if(km>0)
-            price=600;
+            price=firstPrice;
         return price;
     }
 
@@ -49,15 +49,14 @@ public class Taxi {
         }else return 0;
     }
 
-    public long priceFormat(long price){
+    public long priceFormat_yuan(long price){
         long formatPrice=0;
         if (price>0)
         formatPrice = price/100;
         return formatPrice;
     }
 
-
-    public long getPrice(int km,int mins){
+    public long getKmPrice(int km){
         long price=0;
         if(km>8){
             long normalPrice=normalPrice(8);
@@ -67,8 +66,19 @@ public class Taxi {
         }else {
             price+=normalPrice(km);
         }
+        return price;
+    }
+
+    public long priceMockTest(long kmPrice,long timePrice){
+        return kmPrice+timePrice;
+    }
+
+
+    public long getPrice(int km,int mins){
+        long price=0;
+        price+=getKmPrice(km);
         price+=timePrice(mins);
-        return priceFormat(price);
+        return priceFormat_yuan(price);
     }
 
 }
