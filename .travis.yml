@@ -1,8 +1,8 @@
 language: android
-jdk: oraclejdk7
+jdk: openjdk7
 env:
   matrix:
-    - ANDROID_TARGET=android-19  ANDROID_ABI=armeabi-v7a
+    - ANDROID_TARGET=android-23  ANDROID_ABI=armeabi-v7a
 
 before_install:
  - chmod +x gradlew
@@ -25,7 +25,10 @@ android:
     #- extra-google-m2repository
     #- extra-android-m2repository
     #- addon-google_apis-google-19
-
+    - junit:junit:4.12
+    - org.mockito:mockito-core:1.+
+    - com.android.support:appcompat-v7:23.4.0
+    
     # Specify at least one system image,
     # if you need to run emulator(s) during your tests
     - sys-img-armeabi-v7a-android-23
